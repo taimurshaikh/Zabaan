@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+        <div class="row justify-content-center">
+            <form action="/register" method="post" id="register">
+                <div class="form-group">
+                    {% if invalid_un == True %}
+                        <input autocomplete="off" autofocus class="form-control is-invalid" name="username" placeholder="Username" type="text">
+                        <div class="invalid-feedback"><b>{{ error_msg }}</b></div>
+                    {% else %}
+                        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+                        <div class="form-text text-muted">Username should be at least 4 characters</div>
+                    {% endif %}
+                </div>
+        </div>
+
+        <div class="row justify-content-center">
+                <div class="form-group">
+                    {% if invalid_pw == True %}
+                        <input autocomplete="off" autofocus class="form-control is-invalid" name="password" placeholder="Password" type="password">
+                        <div class="invalid-feedback"><b>{{ error_msg }}</b></div>
+                    {% else %}
+                        <input autocomplete="off" autofocus class="form-control" name="password" placeholder="Password" type="password">
+                        <div class="form-text text-muted">Password should be at least 6 characters</div>
+                    {% endif %}
+                </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="password-confirm" placeholder="Confirm Password" type="password">
+                </div>
+            </form>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+                <button class="btn btn-primary" type="submit" form="register">Register</button>
+        </div>
+
+{% endblock %}

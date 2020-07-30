@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+    <script type="text/javascript" src="script.js"></script>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 col-md-12">
+            <h1>About</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center headers">
+        <div class="col-md-8 col-md-12">
+            <p style="font-family: Raleway;">This web app was made as a final project for Harvard's CS50x 2020 using HTML, CSS, Javascript, Python's Flask framework and SQLite for databasing.
+            <br>
+            <b><a class="link" href="https://cs50.harvard.edu/x/2020/" target="_blank">Check out the course here</a></b>
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center headers">
+        <div class="col-md-10 col-sm-12">
+            <h1>Check me out on:</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center" style="overflow: hidden;">
+        <div class="col-md-3 col-sm-12">
+            <div class="socials">
+                <ul>
+                    <li><a href="https://instagram.com/taimurshaikhmusic" target="_blank"><img src="static/instagram.png" width="64" height="64"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="socials">
+                <ul>
+                    <li><a href="https://github.com/taimurshaikh" target="_blank"><img src="static/github.png" width="64" height="64"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="socials">
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/taimur-shaikh-3774421b0/" target="_blank"><img src="static/linkedin.png" width="64" height="64"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="socials">
+                <ul>
+                    <li><a href="https://soundcloud.com/taimurshaikhmusic" target="_blank"><img src="static/soundcloud.png" width="64" height="64"></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

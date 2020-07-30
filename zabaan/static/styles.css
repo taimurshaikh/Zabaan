@@ -1,0 +1,208 @@
+.p-5
+{
+    padding: 40px;
+}
+
+
+
+nav .navbar-brand
+{
+    font-size: 40px;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+
+}
+
+
+#title
+{
+
+    color: #ffb347;
+
+}
+
+#title:hover
+{
+
+    color: orange;
+
+
+}
+
+textarea
+{
+    resize: none;
+}
+
+.option
+{
+    font-family: Raleway;
+    color: orange;
+}
+
+/* body color */
+body
+{
+    background-color: #8EE5EE;
+}
+
+.textbox
+{
+
+    padding: 15px;
+}
+
+.translate-button
+{
+
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.translate-button:hover
+{
+    background-color: orange;
+    border: orange;
+    font-size: 105%;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: hidden;
+
+    /* center contents */
+    text-align: center;
+
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td
+{
+    padding: 10px;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.box {
+    margin-left: 15px;
+    position: relative;
+    width: 70px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+.box input {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+span {
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 20px;
+    height: 20px;
+    z-index: -1;
+    border-radius: 50px;
+    transition: all 0.3s;
+    background-color: #272727;
+}
+
+.box input:checked ~span{
+    transform: translateX(200%) scale(1);
+    background-color: #FFFFFF;
+}
+
+.link
+{
+    color: black;
+
+}
+
+.link:hover
+{
+    color: orange;
+    font-size: 105%;
+    text-decoration: none;
+}
+
+td .link:hover
+{
+    font-size: 100%;
+}
+
+
+.socials ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    transform: translate(37.5%);
+    display: flex;
+}
+
+.socials li
+{
+    float: left;
+    padding: 16px;
+
+}
+
+@media screen and (min-width:601px){
+    .headers
+    {
+        padding: 75px;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    textarea {
+        width: 25%;
+    }
+}
+
+.form-group
+{
+    padding: 25px;
+}
+
+.form-control
+{
+    font-family: Raleway;
+    font-weight: bold;
+}
+
+.indexBox
+{
+    margin-top: 15px;
+}

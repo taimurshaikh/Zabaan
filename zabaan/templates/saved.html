@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Saved
+{% endblock %}
+
+{% block main %}
+
+
+
+    <div class="row justify-content-center">
+        {% if not rows %}
+            <h1 style="margin-top:20%;">Looks like you've got no saved songs!</h1>
+        {% else %}
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+
+                    <th scope="col">Song</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row['song'] }}</td>
+                        <td>{{ row['source'] }}</td>
+                        <td>{{ row['dest'] }}</td>
+                        <td><a href="{{ url_for('edit', src_lyrics=row['sourcelyrics'], dest_lyrics=row['destlyrics'], src_lang=row['source'], dest_lang=row['dest']) }}" class="link"><img src="static/edit-icon.svg" width="16" height="16"></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}

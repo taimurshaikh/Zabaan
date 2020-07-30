@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-around">
+        <div class="form-group col-lg-4 col-sm-10">
+            <form action="{{ url_for('edit', src_lyrics=row['sourcelyrics'], dest_lyrics=row['destlyrics'], src_lang=row['source'], dest_lang=row['dest']) }}" method="post" id="saveChanges">
+
+                    {% if source_empty %}
+                        <textarea class="form-control indexBox" name="editInput" id="editInput" form="saveChanges" rows="20" cols="35" wrap="hard"></textarea>
+                    {% else %}
+                        <textarea class="form-control indexBox" name="editInput" id="editInput" form="saveChanges" rows="20" cols="35" wrap="hard">{{ source }}</textarea>
+                    {% endif %}
+            </form>
+        </div>
+
+        <div class="col-lg-4 col-sm-10">
+            <div class="form-group">
+               <textarea class="form-control indexBox" name="editOutput" id="editOutput" form="saveChanges" rows="20" cols="35">{{ translation }}</textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        <input type="text" class="form-control" name="song-name-edit" id="song-name-edit" value="{{ song }}" placeholder="Song Name" form="saveChanges" style="margin: 10px;">
+    </div>
+
+    <div class="row justify-content-center">
+            <button class="btn btn-dark translate-button" type="submit" form="saveChanges" name="saveChangesBtn" id="saveChangesBtn">Save Changes</button>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome!
+{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-around">
+        <div class="form-group col-lg-4 col-sm-10">
+            <select name="src-lang" id="src-lang" class="form-control" form="translate">
+                <option name="option" value="from...">From...</option>
+                {% for lang in langs %}
+                    {% if lang == src_lang %}
+                        <option selected name="option" value= "{{lang}}">{{ lang }}</option>
+                    {% else %}
+                        <option name="option" value="{{lang}}">{{ lang }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+
+            <form action="/" method="post" id="translate">
+
+                    {% if source_empty %}
+                        <textarea class="form-control indexBox" name="input" id="input" form="translate" rows="20" cols="35" wrap="hard"></textarea>
+                    {% else %}
+                        <textarea class="form-control indexBox" name="input" id="input" form="translate" rows="20" cols="35" wrap="hard">{{ source }}</textarea>
+                    {% endif %}
+            </form>
+        </div>
+
+        <div class="col-lg-4 col-sm-10">
+            <div class="form-group">
+
+
+                <select name="dest-lang" id="dest-lang" class="form-control" form="translate">
+                    <option readonly name="option" value="to...">To...</option>
+                    {% for lang in langs %}
+                        {% if lang == dest_lang %}
+                            <option selected name="option" value= "{{lang}}">{{ lang }}</option>
+                        {% else %}
+                            <option name="option" value="{{lang}}">{{ lang }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+
+                <textarea class="form-control indexBox" name="output" id="output" form="translate" rows="20" cols="35" readonly="readonly">{{ translation }}</textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        {% if no_songname %}
+            <input autocomplete="off" autofocus class="form-control is-invalid" name="song-name" id="song-name" placeholder="Song Name" type="text" form="translate" style="margin: 10px;">
+            <div class="invalid-feedback"><b>Must provide song name</b></div>
+        {% else %}
+            <input type="text" class="form-control" name="song-name" id="song-name" placeholder="Song Name" form="translate" style="margin: 10px;">
+        {% endif %}
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="btn-group btn-group-toggle translate-save" data-toggle="buttons" style="margin-right:10px;">
+              <label class="btn btn-primary active" style="background-color:#ffb347;">
+                <input type="radio" name="btn-choice" id="translateBtn" autocomplete="off" value="Translate" form="translate" checked> Translate
+              </label>
+              {% if not no_login %}
+                    <label class="btn btn-dark">
+                        <input type="radio" name="btn-choice" id="saveBtn" autocomplete="off" value="Save" form="translate"> Save
+                    </label>
+              {% endif %}
+        </div>
+        {% if source_empty %}
+            <button disabled class="btn btn-dark translate-button" type="submit" form="translate" name="tongueBtn" id="tongueBtn"><img src="static/favicon-16x16.png"></button>
+        {% else %}
+            <button class="btn btn-dark translate-button" type="submit" form="translate" name="tongueBtn" id="tongueBtn"><img src="static/favicon-16x16.png"></button>
+        {% endif %}
+    </div>
+
+{% endblock %}

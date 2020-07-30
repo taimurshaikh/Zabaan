@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Password
+{% endblock %}
+
+{% block main %}
+        <div class="row justify-content-center">
+            <form action="/passwordchange" method="post" id="change">
+                <div class="form-group">
+                    {% if invalid_pw == True %}
+                        <input autocomplete="off" autofocus class="form-control is-invalid" name="password" placeholder="New Password" type="password">
+                        <div class="invalid-feedback"><b>{{ error_msg }}</b></div>
+                    {% else %}
+                        <input autocomplete="off" autofocus class="form-control" name="password" placeholder="Password" type="password">
+                        <div class="form-text text-muted">New password should be at least 6 characters</div>
+                    {% endif %}
+                </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="password-confirm" placeholder="Confirm New Password" type="password">
+                </div>
+            </form>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+                <button class="btn btn-primary" type="submit" form="change">Change</button>
+        </div>
+{% endblock %}
