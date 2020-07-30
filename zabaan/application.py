@@ -1,9 +1,9 @@
 from cs50 import SQL
-from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import generate_password_hash
 
 from helpers import login_required, translate_lyrics, get_language_codes, get_language_list
 
@@ -103,6 +103,7 @@ def saved():
     rows = db.execute("SELECT song,source,dest,sourcelyrics,destlyrics FROM saved WHERE user_id = :id;", id=session['user_id'])
     return render_template("saved.html",rows=rows)
 
+# Lyrics and languages are passed in as route parameters
 @app.route("/edit/<src_lyrics>/<dest_lyrics>/<src_lang>/<dest_lang>", methods=["GET", "POST"])
 @login_required
 def edit(src_lyrics, dest_lyrics, src_lang, dest_lang):
@@ -130,11 +131,12 @@ def edit(src_lyrics, dest_lyrics, src_lang, dest_lang):
 
 @app.route("/about")
 def about():
-    """Display info about project"""
+    '''Display info about project'''
     return render_template("about.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    '''Allows user to create a new account'''
     if request.method == 'GET':
         return render_template('register.html')
 
@@ -181,7 +183,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Log user in"""
+    '''Log user in'''
 
     # Forget any user_id
     session.clear()
@@ -223,6 +225,7 @@ def login():
 @app.route("/passwordchange", methods=["GET", "POST"])
 @login_required
 def password_change():
+    '''Change user's password'''
     if request.method == "GET":
         return render_template("change.html")
     pw = request.form.get("password").strip()
@@ -243,7 +246,7 @@ def password_change():
 @app.route("/logout")
 @login_required
 def logout():
-    """Log user out"""
+    '''Log user out'''
 
     # Forget any user_id
     session.clear()
