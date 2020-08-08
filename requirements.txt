@@ -31,7 +31,6 @@ Markdown==3.2.2
 matplotlib==3.2.2
 mccabe==0.6.1
 nodeenv==1.4.0
-numpy @ file:///C:/Users/taimu/Desktop/numpy-1.19.0%2Bmkl-cp37-cp37m-win_amd64.whl
 oauthlib==3.1.0
 opt-einsum==3.2.1
 packaging==20.4
